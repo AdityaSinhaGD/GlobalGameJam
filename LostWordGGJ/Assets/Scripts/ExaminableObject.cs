@@ -10,7 +10,6 @@ public class ExaminableObject : MonoBehaviour
     private Material defaultMaterial;
     public Material highlightMaterial;
 
-    public string examineMessage;
     public string objectName;
 
     private Renderer materialRenderer;
@@ -28,12 +27,17 @@ public class ExaminableObject : MonoBehaviour
     {
         startingPosition = transform.position;
         startingRotation = transform.rotation;
+        if (objectName == "")
+        {
+            objectName = transform.name;
+        }
     }
 
     public void Select(Vector3 focusPosition, Vector3 target)
     {
         transform.position = focusPosition;
         transform.LookAt(target);
+        StartCoroutine(LearnWord());
 
     }
 
@@ -55,5 +59,17 @@ public class ExaminableObject : MonoBehaviour
 
         materialRenderer.material = defaultMaterial;
         //HUDManager.Instance.ResetInteractionMessage();
+    }
+
+    private IEnumerator LearnWord()
+    {
+        yield return new WaitForSeconds(2f);
+        if (!GameManager.Instance.wordsLearned.Contains(objectName))
+        {
+            GameManager.Instance.wordsLearned.Add(objectName);
+            UIManager.Instance.UpdateWordCollectionDisplay(objectName);
+            UIManager.Instance.DisplayLearnedWord(objectName);
+        }
+        
     }
 }
