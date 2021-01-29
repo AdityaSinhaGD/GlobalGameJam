@@ -19,10 +19,14 @@ public class FPController : MonoBehaviour
     float yawSmoothV;
     float pitchSmoothV;
 
+    float yawInput;
+    float pitchInput;
+
     public Vector2 pitchMinMax = new Vector2(-40, 85);
     public float rotationSmoothTime = 0.1f;
 
     private CharacterController characterController;
+    private ObjectInteractionController objectInteractionController;
 
     [SerializeField] private Camera fpsCamera;
 
@@ -30,6 +34,7 @@ public class FPController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        objectInteractionController = GetComponent<ObjectInteractionController>();
         fpsCamera = Camera.main;
     }
 
@@ -38,8 +43,16 @@ public class FPController : MonoBehaviour
     {
         if(GameManager.Instance.state == GameManager.GameState.running)
         {
-            ProcessPlayerMovement();
-            ProcessPlayerLook();
+            if (objectInteractionController.objectBeingExamined != null)
+            {
+                ExamineObject(objectInteractionController.objectBeingExamined);
+            }
+            else
+            {
+                ProcessPlayerMovement();
+                ProcessPlayerLook();
+            }
+            
         }
         
     }
@@ -79,5 +92,17 @@ public class FPController : MonoBehaviour
         smoothYaw = Mathf.SmoothDampAngle(smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
         transform.eulerAngles = Vector3.up * smoothYaw;
         fpsCamera.transform.localEulerAngles = Vector3.right * smoothPitch;
+    }
+
+    public void ExamineObject(GameObject obj)
+    {
+        yawInput = Input.GetAxisRaw("Mouse X") * 1.5f;
+        pitchInput = Input.GetAxisRaw("Mouse Y") * 1.5f;
+
+        if (Mathf.Abs(pitchInput) > Mathf.Abs(yawInput))
+            obj.transform.Rotate(transform.right, pitchInput, Space.World);
+
+        else
+            obj.transform.Rotate(transform.up, -yawInput, Space.World);
     }
 }
