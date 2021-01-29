@@ -121,18 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &151714808 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7930816965322128068, guid: ef7096014033148ababd11fca619ddb4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7930816965204001084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &597175339
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,12 +197,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &789526588 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7930816964752013568, guid: ef7096014033148ababd11fca619ddb4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7930816965204001084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &943366616
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,11 +583,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3624934144503133506, guid: fcdc40ceb49614ad78814e803671ef54,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3624934144503133507, guid: fcdc40ceb49614ad78814e803671ef54,
         type: 3}
       propertyPath: m_Name
@@ -675,16 +652,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7725905889736587129, guid: f262923a6e315427da55bcb988d2d2d8,
-        type: 3}
-      propertyPath: correctAnswer
-      value: Necronomicon
-      objectReference: {fileID: 0}
-    - target: {fileID: 7725905889736587129, guid: f262923a6e315427da55bcb988d2d2d8,
-        type: 3}
-      propertyPath: question
-      value: What is spooky?
-      objectReference: {fileID: 0}
     - target: {fileID: 7725905891222559745, guid: f262923a6e315427da55bcb988d2d2d8,
         type: 3}
       propertyPath: m_Name
@@ -859,21 +826,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7930816965754064473, guid: ef7096014033148ababd11fca619ddb4,
-        type: 3}
-      propertyPath: keypadUI
-      value: 
-      objectReference: {fileID: 789526588}
-    - target: {fileID: 7930816965754064473, guid: ef7096014033148ababd11fca619ddb4,
-        type: 3}
-      propertyPath: hudText
-      value: 
-      objectReference: {fileID: 7930816965204001085}
-    - target: {fileID: 7930816965754064473, guid: ef7096014033148ababd11fca619ddb4,
-        type: 3}
-      propertyPath: confirmAnswerButton
-      value: 
-      objectReference: {fileID: 151714808}
     - target: {fileID: 7930816965754064476, guid: ef7096014033148ababd11fca619ddb4,
         type: 3}
       propertyPath: m_Name
@@ -881,15 +833,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7096014033148ababd11fca619ddb4, type: 3}
---- !u!114 &7930816965204001085 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7761954434001392919, guid: ef7096014033148ababd11fca619ddb4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7930816965204001084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

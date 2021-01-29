@@ -228,10 +228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -270,8 +270,8 @@ MonoBehaviour:
   wordText: {fileID: 7930816965671300866}
   questionText: {fileID: 7930816966134909617}
   answerText: {fileID: 7930816964448067094}
-  hudText: {fileID: 0}
-  confirmAnswerButton: {fileID: 0}
+  hudText: {fileID: 7761954434001392919}
+  confirmAnswerButton: {fileID: 7930816965322128068}
   keypadUI: {fileID: 7930816964752013568}
 --- !u!1 &9133095647580476554
 GameObject:
@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.52582663, y: 0.47064707}
   m_AnchorMax: {x: 0.69500005, y: 0.52751464}
-  m_AnchoredPosition: {x: 1.4000015, y: 0.5}
+  m_AnchoredPosition: {x: 1.3999939, y: 0.5}
   m_SizeDelta: {x: -4, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2386596303942382364
@@ -363,6 +363,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7930816965754064473}
+    - target: {fileID: 7423636713634245729, guid: 6ae9575daf8514d19a2a41337fe172fa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.20000458
+      objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196148, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_Name
@@ -431,17 +436,17 @@ PrefabInstance:
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.0000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 206.12793
+      value: 350.79944
       objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 242.05939
+      value: 444.599
       objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
@@ -509,5 +514,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7930816965322128068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7423636714503833776, guid: 6ae9575daf8514d19a2a41337fe172fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 651300388878037620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
