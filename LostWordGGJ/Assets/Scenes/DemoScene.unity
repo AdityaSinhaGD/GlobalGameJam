@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &151714808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7930816965322128068, guid: ef7096014033148ababd11fca619ddb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7930816965204001084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &597175339
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +215,117 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7930816965204001084}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &943366616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943366621}
+  - component: {fileID: 943366620}
+  - component: {fileID: 943366619}
+  - component: {fileID: 943366618}
+  - component: {fileID: 943366617}
+  m_Layer: 0
+  m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &943366617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943366616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a509dc87a35c4c1cbff73023473fa6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0, z: 0}
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  highlightMaterial: {fileID: 2100000, guid: fc8cbac3c096a492a815078110a1eeab, type: 2}
+  objectName: Discus
+--- !u!136 &943366618
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943366616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &943366619
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943366616}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5cf2bfe2706be4847a0a89b15f4ef30c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &943366620
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943366616}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &943366621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943366616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.83, y: 0.46, z: 7.72}
+  m_LocalScale: {x: 1, y: 0.044064, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1046005126
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +675,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7725905889736587129, guid: f262923a6e315427da55bcb988d2d2d8,
+        type: 3}
+      propertyPath: correctAnswer
+      value: Necronomicon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725905889736587129, guid: f262923a6e315427da55bcb988d2d2d8,
+        type: 3}
+      propertyPath: question
+      value: What is spooky?
+      objectReference: {fileID: 0}
     - target: {fileID: 7725905891222559745, guid: f262923a6e315427da55bcb988d2d2d8,
         type: 3}
       propertyPath: m_Name
@@ -731,6 +864,16 @@ PrefabInstance:
       propertyPath: keypadUI
       value: 
       objectReference: {fileID: 789526588}
+    - target: {fileID: 7930816965754064473, guid: ef7096014033148ababd11fca619ddb4,
+        type: 3}
+      propertyPath: hudText
+      value: 
+      objectReference: {fileID: 7930816965204001085}
+    - target: {fileID: 7930816965754064473, guid: ef7096014033148ababd11fca619ddb4,
+        type: 3}
+      propertyPath: confirmAnswerButton
+      value: 
+      objectReference: {fileID: 151714808}
     - target: {fileID: 7930816965754064476, guid: ef7096014033148ababd11fca619ddb4,
         type: 3}
       propertyPath: m_Name
@@ -738,3 +881,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7096014033148ababd11fca619ddb4, type: 3}
+--- !u!114 &7930816965204001085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7761954434001392919, guid: ef7096014033148ababd11fca619ddb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7930816965204001084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

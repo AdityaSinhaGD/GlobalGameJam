@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     public Text wordText;
     public Text questionText;
     public Text answerText;
+    public Text hudText;
+
+    public Button confirmAnswerButton;
 
     [SerializeField] private GameObject keypadUI;
     private Dropdown wordCollectionDropdown;
@@ -32,6 +35,12 @@ public class UIManager : MonoBehaviour
         instance = this;
         InitializeKeyPadUIContainerObject();
         keypadUI.SetActive(false);
+    }
+
+    private void Start()
+    {
+        confirmAnswerButton.onClick.AddListener(AnswerButtonPressed);
+        ResetHUDText();
     }
 
     private void InitializeKeyPadUIContainerObject()
@@ -111,7 +120,28 @@ public class UIManager : MonoBehaviour
 
     public void AnswerButtonPressed()
     {
-
+        if(answerText.text == GameManager.Instance.correctWord)
+        {
+            Debug.Log("You Defeated");
+        }
+        else
+        {
+            Debug.Log("Wrong Answer Try again");
+        }
     }
 
+    public void SetHUDText(string message)
+    {
+        hudText.text = message;
+    }
+
+    public void ResetHUDText()
+    {
+        hudText.text = "";
+    }
+
+    public void SetQuestionText(string message)
+    {
+        questionText.text = message;
+    }
 }

@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     private bool isPaused = false;
 
     public List<string> wordsLearned = new List<string>();
+    public string correctWord;
     
     public override void Awake()
     {
