@@ -10,15 +10,19 @@ public class GameManager : Singleton<GameManager>
     public GameState state = GameState.running;
     private bool isPaused = false;
 
+    public List<string> wordsLearned = new List<string>();
+    public string correctWord;
+    
     public override void Awake()
     {
         base.Awake();
         InitializeCrosshair();
+        wordsLearned.Add("GameJam");
     }
 
     private void InitializeCrosshair()
     {
-        crosshair = GameObject.Find("crosshair");
+        crosshair = GameObject.Find("Crosshair");
         Cursor.lockState = CursorLockMode.Locked; //Lock cursor
         Cursor.visible = false; //Hide Cursor
         if (crosshair != null)
@@ -35,21 +39,31 @@ public class GameManager : Singleton<GameManager>
     {
         if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) && state != GameState.paused) //Pauses the game
         {
-            state = GameState.paused;
-            isPaused = !isPaused;
-            Cursor.lockState = CursorLockMode.None; //Allow user to move cursor
-            Cursor.visible = true; //Show Cursor
-            if (crosshair != null) //Hide Crosshair
-                crosshair.SetActive(false);
+            PauseGame();
 
         }
         else if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) && state == GameState.paused)
         {
-            state = GameState.running;
-            Cursor.lockState = CursorLockMode.Locked; //Lock cursor
-            Cursor.visible = false; //Hide Cursor
-            if (crosshair != null)
-                crosshair.SetActive(true); //Show Crosshair 
+            ResumeGame();
         }
+    }
+
+    public void ResumeGame()
+    {
+        state = GameState.running;
+        Cursor.lockState = CursorLockMode.Locked; //Lock cursor
+        Cursor.visible = false; //Hide Cursor
+        if (crosshair != null)
+            crosshair.SetActive(true); //Show Crosshair 
+    }
+
+    public void PauseGame()
+    {
+        state = GameState.paused;
+        isPaused = !isPaused;
+        Cursor.lockState = CursorLockMode.None; //Allow user to move cursor
+        Cursor.visible = true; //Show Cursor
+        if (crosshair != null) //Hide Crosshair
+            crosshair.SetActive(false);
     }
 }
