@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject keypadUI;
     public InputField inputField;
 
+    public GameObject crosshair;
+
     private static UIManager instance;
 
     public static UIManager Instance
@@ -35,6 +37,7 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
         keypadUI.SetActive(false);
+        InitializeCrosshair();
     }
 
     private void Start()
@@ -42,6 +45,31 @@ public class UIManager : MonoBehaviour
         confirmAnswerButton.onClick.AddListener(AnswerButtonPressed);
         inputField.onValueChanged.AddListener(ValidateInput);
         ResetHUDText();
+    }
+
+    private void InitializeCrosshair()
+    {
+        crosshair = GameObject.Find("Crosshair");
+        Cursor.lockState = CursorLockMode.Locked; //Lock cursor
+        Cursor.visible = false; //Hide Cursor
+        if (crosshair != null)
+            crosshair.SetActive(true); //Show Crosshair
+    }
+
+    public void EnableCrosshair()
+    {
+        Cursor.lockState = CursorLockMode.Locked; //Lock cursor
+        Cursor.visible = false; //Hide Cursor
+        if (crosshair != null)
+            crosshair.SetActive(true); //Show Crosshair 
+    }
+
+    public void DisableCrosshair()
+    {
+        Cursor.lockState = CursorLockMode.None; //Allow user to move cursor
+        Cursor.visible = true; //Show Cursor
+        if (crosshair != null) //Hide Crosshair
+            crosshair.SetActive(false);
     }
 
     private void ValidateInput(string arg0)

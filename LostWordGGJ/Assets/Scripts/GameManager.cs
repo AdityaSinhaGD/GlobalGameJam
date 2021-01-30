@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject crosshair;
+    //public GameObject crosshair;
 
     public enum GameState { running, paused, over }
     public GameState state = GameState.running;
@@ -17,18 +18,18 @@ public class GameManager : Singleton<GameManager>
     public override void Awake()
     {
         base.Awake();
-        InitializeCrosshair();
+        //InitializeCrosshair();
         wordsLearned.Add("GameJam");
     }
 
-    private void InitializeCrosshair()
-    {
-        crosshair = GameObject.Find("Crosshair");
-        Cursor.lockState = CursorLockMode.Locked; //Lock cursor
-        Cursor.visible = false; //Hide Cursor
-        if (crosshair != null)
-            crosshair.SetActive(true); //Show Crosshair
-    }
+    //private void InitializeCrosshair()
+    //{
+    //    crosshair = GameObject.Find("Crosshair");
+    //    Cursor.lockState = CursorLockMode.Locked; //Lock cursor
+    //    Cursor.visible = false; //Hide Cursor
+    //    if (crosshair != null)
+    //        crosshair.SetActive(true); //Show Crosshair
+    //}
 
     // Update is called once per frame
     void Update()
@@ -53,21 +54,28 @@ public class GameManager : Singleton<GameManager>
 
     public void ResumeGame()
     {
-        state = GameState.running;
-        isPaused = false;
-        Cursor.lockState = CursorLockMode.Locked; //Lock cursor
-        Cursor.visible = false; //Hide Cursor
-        if (crosshair != null)
-            crosshair.SetActive(true); //Show Crosshair 
+        if (UIManager.Instance)
+        {
+            state = GameState.running;
+            isPaused = false;
+            UIManager.Instance.EnableCrosshair();
+        }
+        
     }
 
     public void PauseGame()
     {
-        state = GameState.paused;
-        isPaused = true;
-        Cursor.lockState = CursorLockMode.None; //Allow user to move cursor
-        Cursor.visible = true; //Show Cursor
-        if (crosshair != null) //Hide Crosshair
-            crosshair.SetActive(false);
+        if (UIManager.Instance)
+        {
+            state = GameState.paused;
+            isPaused = true;
+            UIManager.Instance.DisableCrosshair();
+        }
+        
+    }
+
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }
