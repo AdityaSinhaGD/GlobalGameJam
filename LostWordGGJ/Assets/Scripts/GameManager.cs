@@ -38,20 +38,23 @@ public class GameManager : Singleton<GameManager>
 
     private void ProcessPauseCommand()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) && state != GameState.paused) //Pauses the game
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
-
-        }
-        else if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) && state == GameState.paused)
-        {
-            ResumeGame();
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
         }
     }
 
     public void ResumeGame()
     {
         state = GameState.running;
+        isPaused = false;
         Cursor.lockState = CursorLockMode.Locked; //Lock cursor
         Cursor.visible = false; //Hide Cursor
         if (crosshair != null)
@@ -61,7 +64,7 @@ public class GameManager : Singleton<GameManager>
     public void PauseGame()
     {
         state = GameState.paused;
-        isPaused = !isPaused;
+        isPaused = true;
         Cursor.lockState = CursorLockMode.None; //Allow user to move cursor
         Cursor.visible = true; //Show Cursor
         if (crosshair != null) //Hide Crosshair
