@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     public GameState state = GameState.running;
     private bool isPaused = false;
 
+    public List<char> lettersLearned = new List<char>();
     public List<string> wordsLearned = new List<string>();
     public string correctWord;
     

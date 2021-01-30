@@ -273,6 +273,7 @@ MonoBehaviour:
   hudText: {fileID: 7761954434001392919}
   confirmAnswerButton: {fileID: 7930816965322128068}
   keypadUI: {fileID: 7930816964752013568}
+  inputField: {fileID: 2470581692507053777}
 --- !u!1 &9133095647580476554
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,11 +364,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7930816965754064473}
-    - target: {fileID: 7423636713634245729, guid: 6ae9575daf8514d19a2a41337fe172fa,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.20000458
-      objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196148, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_Name
@@ -514,6 +510,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2470581692507053777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3116674240260172965, guid: 6ae9575daf8514d19a2a41337fe172fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 651300388878037620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7930816965322128068 stripped

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class UIManager : MonoBehaviour
     public Button confirmAnswerButton;
 
     [SerializeField] private GameObject keypadUI;
-    private Dropdown wordCollectionDropdown;
+    public InputField inputField;
 
     private static UIManager instance;
 
@@ -33,41 +34,59 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        InitializeKeyPadUIContainerObject();
         keypadUI.SetActive(false);
     }
 
     private void Start()
     {
         confirmAnswerButton.onClick.AddListener(AnswerButtonPressed);
+        inputField.onValueChanged.AddListener(ValidateInput);
         ResetHUDText();
     }
 
-    private void InitializeKeyPadUIContainerObject()
+    private void ValidateInput(string arg0)
     {
-        if (keypadUI != null)
-        {
-            InitializeDropdown();
-        }
-        else
-        {
-            Debug.Log("no Word dropdown active in scene");
-        }
+        string allowedCharacters = new string(GameManager.Instance.lettersLearned.ToArray());
 
+        var match = Regex.IsMatch(inputField.text, @"^[x" + allowedCharacters + "]+$");
+        if (!match)
+        {
+            if (string.IsNullOrEmpty(inputField.text))
+            {
+                return;
+            }
+            else
+            {
+                inputField.text = inputField.text.Remove(inputField.text.Length - 1, 1);
+            }
+        }
     }
 
-    private void InitializeDropdown()
-    {
-        wordCollectionDropdown = keypadUI.GetComponentInChildren<Dropdown>();
-        foreach(string word in GameManager.Instance.wordsLearned)
-        {
-            UpdateWordCollectionDisplay(word);
-        }
-        wordCollectionDropdown.onValueChanged.AddListener(delegate
-        {
-            DropdownValueChanged(wordCollectionDropdown);
-        });
-    }
+    //private void InitializeKeyPadUIContainerObject()
+    //{
+    //    if (keypadUI != null)
+    //    {
+    //        InitializeDropdown();
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("no Word dropdown active in scene");
+    //    }
+
+    //}
+
+    //private void InitializeDropdown()
+    //{
+    //    wordCollectionDropdown = keypadUI.GetComponentInChildren<Dropdown>();
+    //    foreach(string word in GameManager.Instance.wordsLearned)
+    //    {
+    //        UpdateWordCollectionDisplay(word);
+    //    }
+    //    wordCollectionDropdown.onValueChanged.AddListener(delegate
+    //    {
+    //        DropdownValueChanged(wordCollectionDropdown);
+    //    });
+    //}
 
     public void EnableKeyPadUI()
     {
@@ -81,15 +100,15 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.ResumeGame();
     }
 
-    private void DropdownValueChanged(Dropdown change)
-    {
-        int index = change.value;
-        if (index != 0)
-        {
-            answerText.text = wordCollectionDropdown.options[index].text;
-        }
+    //private void DropdownValueChanged(Dropdown change)
+    //{
+    //    int index = change.value;
+    //    if (index != 0)
+    //    {
+    //        answerText.text = wordCollectionDropdown.options[index].text;
+    //    }
 
-    }
+    //}
 
     public void SetWordMessage(string message)
     {
@@ -113,14 +132,14 @@ public class UIManager : MonoBehaviour
         StartCoroutine(LearnWordRoutine(word));
     }
 
-    public void UpdateWordCollectionDisplay(string word)
-    {
-        wordCollectionDropdown.options.Add(new Dropdown.OptionData() { text = word });
-    }
+    //public void UpdateWordCollectionDisplay(string word)
+    //{
+    //    wordCollectionDropdown.options.Add(new Dropdown.OptionData() { text = word });
+    //}
 
     public void AnswerButtonPressed()
     {
-        if(answerText.text == GameManager.Instance.correctWord)
+        if(inputField.text.ToLower() == GameManager.Instance.correctWord.ToLower())
         {
             Debug.Log("You Defeated");
         }

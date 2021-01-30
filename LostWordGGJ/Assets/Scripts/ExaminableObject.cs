@@ -67,7 +67,12 @@ public class ExaminableObject : MonoBehaviour
         if (!GameManager.Instance.wordsLearned.Contains(objectName))
         {
             GameManager.Instance.wordsLearned.Add(objectName);
-            UIManager.Instance.UpdateWordCollectionDisplay(objectName);
+            char[] tempCharArray = objectName.ToCharArray();
+            foreach(char c in tempCharArray)
+            {
+                GameManager.Instance.lettersLearned.Add(c);
+            }
+            //UIManager.Instance.UpdateWordCollectionDisplay(objectName);
             UIManager.Instance.DisplayLearnedWord(objectName);
         }
         
