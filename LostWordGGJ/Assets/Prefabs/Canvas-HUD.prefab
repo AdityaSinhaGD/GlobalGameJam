@@ -359,10 +359,10 @@ RectTransform:
   m_Father: {fileID: 7930816965754064472}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -4.7, y: 0}
-  m_SizeDelta: {x: 682.53735, y: 67.3241}
+  m_AnchorMin: {x: 0.20762499, y: 0.042000003}
+  m_AnchorMax: {x: 0.8268751, y: 0.13765901}
+  m_AnchoredPosition: {x: 2.8000488, y: 7}
+  m_SizeDelta: {x: -3.0576172, y: -8.382874}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3870832661612148600
 CanvasRenderer:
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.25
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -824,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 4275110809754055222, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_fontSize
-      value: 57.2
+      value: 58.85
       objectReference: {fileID: 0}
     - target: {fileID: 5906464786578702241, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
@@ -919,12 +919,12 @@ PrefabInstance:
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 406.98718
+      value: 519.19196
       objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 533.9885
+      value: 549.15137
       objectReference: {fileID: 0}
     - target: {fileID: 7423636713933196149, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
@@ -969,7 +969,7 @@ PrefabInstance:
     - target: {fileID: 8659791858282460801, guid: 6ae9575daf8514d19a2a41337fe172fa,
         type: 3}
       propertyPath: m_fontSize
-      value: 47.8
+      value: 49.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae9575daf8514d19a2a41337fe172fa, type: 3}
