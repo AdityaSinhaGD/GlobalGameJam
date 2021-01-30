@@ -8,16 +8,16 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    //public Text wordText;
+    
     public TextMeshProUGUI lettersLearnedText;
-    public Text questionText;
-    public Text answerText;
+    public TextMeshProUGUI questionText;
     public TextMeshProUGUI objectText;
 
     public Button confirmAnswerButton;
+    public Button closeKeypadUIButton;
 
     [SerializeField] private GameObject keypadUI;
-    public InputField inputField;
+    public TMP_InputField inputField;
 
     public GameObject crosshair;
     public GameObject pauseMenu;
@@ -49,11 +49,17 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        InitializeListeners();
+        ResetHUDText();
+    }
+
+    private void InitializeListeners()
+    {
         confirmAnswerButton.onClick.AddListener(AnswerButtonPressed);
         inputField.onValueChanged.AddListener(ValidateInput);
         resumeButton.onClick.AddListener(() => { GameManager.Instance.ResumeGame(); });
+        closeKeypadUIButton.onClick.AddListener(() => { DisableKeyPadUI(); });
         ResetWordMessgage();
-        ResetHUDText();
     }
 
     private void InitializeCrosshair()
@@ -99,31 +105,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //private void InitializeKeyPadUIContainerObject()
-    //{
-    //    if (keypadUI != null)
-    //    {
-    //        InitializeDropdown();
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("no Word dropdown active in scene");
-    //    }
-
-    //}
-
-    //private void InitializeDropdown()
-    //{
-    //    wordCollectionDropdown = keypadUI.GetComponentInChildren<Dropdown>();
-    //    foreach(string word in GameManager.Instance.wordsLearned)
-    //    {
-    //        UpdateWordCollectionDisplay(word);
-    //    }
-    //    wordCollectionDropdown.onValueChanged.AddListener(delegate
-    //    {
-    //        DropdownValueChanged(wordCollectionDropdown);
-    //    });
-    //}
 
     public void EnableKeyPadUI()
     {
@@ -138,16 +119,6 @@ public class UIManager : MonoBehaviour
         keypadUI.SetActive(false);
         GameManager.Instance.ResumeGame();
     }
-
-    //private void DropdownValueChanged(Dropdown change)
-    //{
-    //    int index = change.value;
-    //    if (index != 0)
-    //    {
-    //        answerText.text = wordCollectionDropdown.options[index].text;
-    //    }
-
-    //}
 
     public void SetWordMessage(string message)
     {

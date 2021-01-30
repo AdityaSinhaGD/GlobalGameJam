@@ -18,18 +18,8 @@ public class GameManager : Singleton<GameManager>
     public override void Awake()
     {
         base.Awake();
-        //InitializeCrosshair();
         wordsLearned.Add("GameJam");
     }
-
-    //private void InitializeCrosshair()
-    //{
-    //    crosshair = GameObject.Find("Crosshair");
-    //    Cursor.lockState = CursorLockMode.Locked; //Lock cursor
-    //    Cursor.visible = false; //Hide Cursor
-    //    if (crosshair != null)
-    //        crosshair.SetActive(true); //Show Crosshair
-    //}
 
     // Update is called once per frame
     void Update()
@@ -43,7 +33,11 @@ public class GameManager : Singleton<GameManager>
         {
             if (isPaused)
             {
-                ResumeGame();
+                if (!UIManager.Instance.isInteractionOngoing)
+                {
+                    ResumeGame();
+                }
+                
             }
             else
             {

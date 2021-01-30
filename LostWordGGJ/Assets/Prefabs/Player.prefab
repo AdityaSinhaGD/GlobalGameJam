@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0821ddce1d421daba0b711abda09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionRange: 15
+  selectionRange: 4
   objectBeingExamined: {fileID: 0}
 --- !u!1 &3624934144664538429
 GameObject:
