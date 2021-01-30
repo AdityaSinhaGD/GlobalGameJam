@@ -73,7 +73,11 @@ public class ExaminableObject : MonoBehaviour
                 GameManager.Instance.lettersLearned.Add(c);
             }
             //UIManager.Instance.UpdateWordCollectionDisplay(objectName);
-            UIManager.Instance.DisplayLearnedWord(objectName);
+            UIManager.Instance.SetWordText(objectName);
+        }
+        else
+        {
+            UIManager.Instance.SetWordText("You have already learned the word " + objectName);
         }
         
     }

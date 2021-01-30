@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
 
     public void SetWordMessage(string message)
     {
-        lettersLearnedText.text = message + " learned";
+        lettersLearnedText.text = message;
     }
 
     public void ResetWordMessgage()
@@ -137,7 +137,7 @@ public class UIManager : MonoBehaviour
         ResetWordMessgage();
     }
 
-    public void DisplayLearnedWord(string word)
+    public void SetWordText(string word)
     {
         StartCoroutine(LearnWordRoutine(word));
     }
