@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public Text wordText;
+    //public Text wordText;
+    public TextMeshProUGUI lettersLearnedText;
     public Text questionText;
     public Text answerText;
-    public Text hudText;
+    public TextMeshProUGUI objectText;
 
     public Button confirmAnswerButton;
 
@@ -18,6 +20,10 @@ public class UIManager : MonoBehaviour
     public InputField inputField;
 
     public GameObject crosshair;
+    public GameObject pauseMenu;
+    public Button resumeButton;
+
+    public bool isInteractionOngoing = false;
 
     private static UIManager instance;
 
@@ -36,6 +42,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        pauseMenu.SetActive(false);
         keypadUI.SetActive(false);
         InitializeCrosshair();
     }
@@ -44,6 +51,8 @@ public class UIManager : MonoBehaviour
     {
         confirmAnswerButton.onClick.AddListener(AnswerButtonPressed);
         inputField.onValueChanged.AddListener(ValidateInput);
+        resumeButton.onClick.AddListener(() => { GameManager.Instance.ResumeGame(); });
+        ResetWordMessgage();
         ResetHUDText();
     }
 
@@ -118,12 +127,14 @@ public class UIManager : MonoBehaviour
 
     public void EnableKeyPadUI()
     {
+        isInteractionOngoing = true;
         GameManager.Instance.PauseGame();
         keypadUI.SetActive(true);
     }
 
     public void DisableKeyPadUI()
     {
+        isInteractionOngoing = false;
         keypadUI.SetActive(false);
         GameManager.Instance.ResumeGame();
     }
@@ -140,12 +151,12 @@ public class UIManager : MonoBehaviour
 
     public void SetWordMessage(string message)
     {
-        wordText.text = message + " learned";
+        lettersLearnedText.text = message + " learned";
     }
 
     public void ResetWordMessgage()
     {
-        wordText.text = "";
+        lettersLearnedText.text = "";
     }
 
     private IEnumerator LearnWordRoutine(string word)
@@ -179,12 +190,12 @@ public class UIManager : MonoBehaviour
 
     public void SetHUDText(string message)
     {
-        hudText.text = message;
+        objectText.text = message;
     }
 
     public void ResetHUDText()
     {
-        hudText.text = "";
+        objectText.text = "";
     }
 
     public void SetQuestionText(string message)

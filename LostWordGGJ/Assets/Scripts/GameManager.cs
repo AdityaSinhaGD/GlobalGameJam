@@ -59,6 +59,7 @@ public class GameManager : Singleton<GameManager>
             state = GameState.running;
             isPaused = false;
             UIManager.Instance.EnableCrosshair();
+            UIManager.Instance.pauseMenu.SetActive(false);
         }
         
     }
@@ -70,6 +71,11 @@ public class GameManager : Singleton<GameManager>
             state = GameState.paused;
             isPaused = true;
             UIManager.Instance.DisableCrosshair();
+            if (!UIManager.Instance.isInteractionOngoing)
+            {
+                UIManager.Instance.pauseMenu.SetActive(true);
+            }
+            
         }
         
     }
