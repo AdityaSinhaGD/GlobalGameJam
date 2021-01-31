@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI lettersLearnedText;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI objectText;
+    public TextMeshProUGUI answerFeedBackText;
 
     public Button confirmAnswerButton;
     public Button closeKeypadUIButton;
@@ -20,8 +21,11 @@ public class UIManager : MonoBehaviour
     public TMP_InputField inputField;
 
     public GameObject crosshair;
+
     public GameObject pauseMenu;
     public Button resumeButton;
+    public Button mainMenuButton;
+    public Button quitButton;
 
     public bool isInteractionOngoing = false;
 
@@ -49,6 +53,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.ResumeGame();
         InitializeListeners();
         ResetHUDText();
     }
@@ -58,8 +63,11 @@ public class UIManager : MonoBehaviour
         confirmAnswerButton.onClick.AddListener(AnswerButtonPressed);
         inputField.onValueChanged.AddListener(ValidateInput);
         resumeButton.onClick.AddListener(() => { GameManager.Instance.ResumeGame(); });
+        mainMenuButton.onClick.AddListener(() => { GameManager.Instance.LoadMainMenu(); });
+        quitButton.onClick.AddListener(() => { GameManager.Instance.QuitGame(); });
         closeKeypadUIButton.onClick.AddListener(() => { DisableKeyPadUI(); });
         ResetWordMessgage();
+        ResetAnswerFeedbackText();
     }
 
     private void InitializeCrosshair()
@@ -151,12 +159,27 @@ public class UIManager : MonoBehaviour
     {
         if(inputField.text.ToLower() == GameManager.Instance.correctWord.ToLower())
         {
-            Debug.Log("You Defeated");
+            StartCoroutine(FeedbackRoutine(true));
         }
         else
         {
-            Debug.Log("Wrong Answer Try again");
+            StartCoroutine(FeedbackRoutine(false));
         }
+    }
+
+    private IEnumerator FeedbackRoutine(bool isAnswerCorrect)
+    {
+        if (isAnswerCorrect)
+        {
+            SetAnswerFeedbackText("Nightmare slain");
+            DisableKeyPadUI();
+        }
+        else
+        {
+            SetAnswerFeedbackText("The nightmare continues");
+        }
+        yield return new WaitForSeconds(2f);
+        ResetAnswerFeedbackText();
     }
 
     public void SetHUDText(string message)
@@ -172,5 +195,15 @@ public class UIManager : MonoBehaviour
     public void SetQuestionText(string message)
     {
         questionText.text = message;
+    }
+
+    public void SetAnswerFeedbackText(string message)
+    {
+        answerFeedBackText.text = message;
+    }
+
+    public void ResetAnswerFeedbackText()
+    {
+        answerFeedBackText.text = "";
     }
 }
