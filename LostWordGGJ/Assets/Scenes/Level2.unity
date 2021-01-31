@@ -1181,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: 7033575436897633517, guid: d3153234ca357440f951f461d5faaea0,
         type: 3}
       propertyPath: correctAnswer
-      value: bottle
+      value: cube
       objectReference: {fileID: 0}
     - target: {fileID: 7033575436897633517, guid: d3153234ca357440f951f461d5faaea0,
         type: 3}

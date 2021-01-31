@@ -114,4 +114,9 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

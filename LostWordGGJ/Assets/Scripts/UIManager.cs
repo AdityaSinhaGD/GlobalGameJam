@@ -242,4 +242,9 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.QuitGame();
     }
+
+    public void RestartLevel()
+    {
+        GameManager.Instance.RestartLevel();
+    }
 }
