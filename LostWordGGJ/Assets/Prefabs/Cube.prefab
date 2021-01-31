@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8009514855193621653
+--- !u!1 &3235475075202853832
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8009514855193621652}
-  - component: {fileID: 8009514855193621649}
-  - component: {fileID: 8009514855193621650}
-  - component: {fileID: 8009514855193621651}
-  - component: {fileID: 8009514855193621648}
+  - component: {fileID: 3235475075202853828}
+  - component: {fileID: 3235475075202853831}
+  - component: {fileID: 3235475075202853830}
+  - component: {fileID: 3235475075202853833}
+  - component: {fileID: 3235475075202853829}
   m_Layer: 0
-  m_Name: Keypad
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8009514855193621652
+--- !u!4 &3235475075202853828
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009514855193621653}
+  m_GameObject: {fileID: 3235475075202853832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: 0, z: -0}
-  m_LocalScale: {x: 0.034848392, y: -0.6214682, z: 0.6838579}
+  m_LocalPosition: {x: 16.148, y: 1.006, z: 27.091}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8009514855193621649
+--- !u!33 &3235475075202853831
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009514855193621653}
+  m_GameObject: {fileID: 3235475075202853832}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8009514855193621650
+--- !u!23 &3235475075202853830
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009514855193621653}
+  m_GameObject: {fileID: 3235475075202853832}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc8cbac3c096a492a815078110a1eeab, type: 2}
+  - {fileID: 2100000, guid: 2511e8c0da5d04fb08f432bc8d33ce5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,30 +81,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8009514855193621651
+--- !u!65 &3235475075202853833
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009514855193621653}
+  m_GameObject: {fileID: 3235475075202853832}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8009514855193621648
+--- !u!114 &3235475075202853829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009514855193621653}
+  m_GameObject: {fileID: 3235475075202853832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321e04e8458cd4f91ba644131105bffa, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a509dc87a35c4c1cbff73023473fa6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswer: Necronomicon
-  question: What is spooky?
+  startingPosition: {x: 0, y: 0, z: 0}
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  highlightMaterial: {fileID: 2100000, guid: fc8cbac3c096a492a815078110a1eeab, type: 2}
+  objectName: Cube
