@@ -29,19 +29,23 @@ public class GameManager : Singleton<GameManager>
 
     private void ProcessPauseCommand()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (state==GameState.running||state==GameState.paused)
         {
-            if (isPaused)
+
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!UIManager.Instance.isInteractionOngoing)
+                if (isPaused)
                 {
-                    ResumeGame();
+                    if (!UIManager.Instance.isInteractionOngoing)
+                    {
+                        ResumeGame();
+                    }
+
                 }
-                
-            }
-            else
-            {
-                PauseGame();
+                else
+                {
+                    PauseGame();
+                }
             }
         }
     }
@@ -74,6 +78,17 @@ public class GameManager : Singleton<GameManager>
         
     }
 
+    public void EndGame()
+    {
+        if (UIManager.Instance)
+        {
+            state = GameState.over;
+            UIManager.Instance.gameOverMenu.SetActive(true);
+            UIManager.Instance.DisableCrosshair();
+            UIManager.Instance.pauseMenu.SetActive(false);
+        }
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene(1);
@@ -92,5 +107,11 @@ public class GameManager : Singleton<GameManager>
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }

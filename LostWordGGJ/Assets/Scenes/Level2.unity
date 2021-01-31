@@ -1178,5 +1178,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EscapeRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 7033575436897633517, guid: d3153234ca357440f951f461d5faaea0,
+        type: 3}
+      propertyPath: correctAnswer
+      value: bottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033575436897633517, guid: d3153234ca357440f951f461d5faaea0,
+        type: 3}
+      propertyPath: question
+      value: What has a body but no neck?
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3153234ca357440f951f461d5faaea0, type: 3}

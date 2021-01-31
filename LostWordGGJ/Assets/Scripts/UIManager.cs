@@ -27,7 +27,13 @@ public class UIManager : MonoBehaviour
     public Button mainMenuButton;
     public Button quitButton;
 
+    public GameObject gameOverMenu;
+
     public bool isInteractionOngoing = false;
+
+    public float timeLimit = 60f;
+    private float currentTime;
+    public TextMeshProUGUI timerText;
 
     private static UIManager instance;
 
@@ -46,6 +52,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);
         keypadUI.SetActive(false);
         InitializeCrosshair();
@@ -54,8 +61,22 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.ResumeGame();
+        currentTime = timeLimit;
         InitializeListeners();
         ResetHUDText();
+    }
+
+    private void Update()
+    {
+        if(GameManager.Instance.state == GameManager.GameState.running || GameManager.Instance.state == GameManager.GameState.paused)
+        {
+            if(currentTime <= 0)
+            {
+                GameManager.Instance.EndGame();
+            }
+            currentTime -= Time.deltaTime;
+            timerText.text = currentTime.ToString("0");
+        }
     }
 
     private void InitializeListeners()
@@ -98,8 +119,10 @@ public class UIManager : MonoBehaviour
     private void ValidateInput(string arg0)
     {
         string allowedCharacters = new string(GameManager.Instance.lettersLearned.ToArray());
+        string allowedCharactersLowerCase = allowedCharacters.ToLower();
+        string allowedCharactersUpperCase = allowedCharacters.ToUpper();
 
-        var match = Regex.IsMatch(inputField.text, @"^[x" + allowedCharacters + "]+$");
+        var match = Regex.IsMatch(inputField.text, @"^[xX" + allowedCharactersLowerCase + allowedCharactersUpperCase + "]+$");
         if (!match)
         {
             if (string.IsNullOrEmpty(inputField.text))
@@ -173,13 +196,16 @@ public class UIManager : MonoBehaviour
         {
             SetAnswerFeedbackText("Nightmare slain");
             DisableKeyPadUI();
+            yield return new WaitForSeconds(1.5f);
+            GameManager.Instance.LoadNextLevel();
         }
         else
         {
             SetAnswerFeedbackText("The nightmare continues");
+            yield return new WaitForSeconds(2f);
+            ResetAnswerFeedbackText();
         }
-        yield return new WaitForSeconds(2f);
-        ResetAnswerFeedbackText();
+        
     }
 
     public void SetHUDText(string message)
@@ -205,5 +231,15 @@ public class UIManager : MonoBehaviour
     public void ResetAnswerFeedbackText()
     {
         answerFeedBackText.text = "";
+    }
+
+    public void LoadMainMenu()
+    {
+        GameManager.Instance.LoadMainMenu();
+    }
+
+    public void QuitGame()
+    {
+        GameManager.Instance.QuitGame();
     }
 }
