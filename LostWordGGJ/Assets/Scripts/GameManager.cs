@@ -84,6 +84,11 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(0);
     }
 
+    public void LoadGameLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
